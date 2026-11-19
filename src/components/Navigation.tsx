@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import {ThemeContext} from "../ThemeContext.tsx";
+import {Link} from "react-router";
 
 function Navigation() {
     const { isDark } = useContext(ThemeContext)
@@ -19,8 +20,24 @@ function Navigation() {
                     color: isDark ? '#fff' : '#222',
                 }}
             >
-                <li style={{ color: 'inherit' }}>Home</li>
-                <li style={{ color: 'inherit' }}>Todo</li>
+                <li>
+                    <Link to="/" style={{ color: 'inherit',
+                        textDecoration: "none"
+                    }}>
+                    Home
+                    </Link>
+                </li>
+                {/*---------------------------투두---------------------------------*/}
+                <li>
+                    <Link
+                        to="/todo"
+                        style={{
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}>
+                        Todo
+                    </Link>
+                </li>
                 <li style={{ color: 'inherit' }}>Coin</li>
                 <li style={{ color: 'inherit' }}>Movie</li>
                 <li style={{ color: 'inherit' }}>Rocket</li>

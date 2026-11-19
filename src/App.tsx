@@ -1,7 +1,10 @@
 import { useContext } from "react"
 import Header from "./components/Header"
-import Home from "./components/Home"
+import { Routes, Route } from 'react-router'
+import HomePage from "./pages/HomePage.tsx"
+import TodoPage from "./pages/TodoPage"
 import { ThemeContext } from "./ThemeContext"
+
 
 function App() {
     const { isDark } = useContext(ThemeContext)
@@ -17,7 +20,10 @@ function App() {
             }}
         >
             <Header />
-            <Home />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/todo" element={<TodoPage />} />
+            </Routes>
         </div>
     )
 }
