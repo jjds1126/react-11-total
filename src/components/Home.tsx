@@ -1,4 +1,8 @@
+import {useContext} from "react";
+import {ThemeContext} from "../ThemeContext.tsx";
+
 function Home() {
+    const { isDark } = useContext(ThemeContext)
     const cards = [
         {
             title: '투두리스트',
@@ -34,8 +38,8 @@ function Home() {
         >
             <section
                 style={{
-                    backgroundColor: '#fff',
-                    border: '1px solid #e5e5e5',
+                    backgroundColor: isDark ? '#333' : '#fff',
+                    border: isDark ? '1px solid #444' : '1px solid #e5e5e5',
                     borderRadius: '20px',
                     padding: '36px',
                     marginBottom: '28px',
@@ -72,7 +76,7 @@ function Home() {
                     <div
                         key={card.title}
                         style={{
-                            backgroundColor: '#fff',
+                            backgroundColor: isDark ? '#333' : '#fff',
                             border: '1px solid #e5e5e5',
                             borderRadius: '16px',
                             height: '184px',
