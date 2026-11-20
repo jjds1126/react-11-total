@@ -1,28 +1,36 @@
+import CCharacter from "../components/Character/CCharacter.tsx";
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
+
 type Coin = {
-    market: string;
-    korean_name: string;
-    english_name: string;
+    id: string;
+    name: string;
+    symbol: string;
+    rank: number;
+    price_usd: string;
+    percent_change_24h: string;
+    market_cap_usd: string;
 }
 
 function CoinPage() {
+    const [coins, setCoins] = useState<Coin[]>([]);  /*데이터 들어가는 배열 코인 목록을 coins에 저장*/
+    const [selectedCoin, setSelectedCoin] = useState<Coin | null>(null);
 
-    const [coins, setCoins] = useState<Coin[]>([]);
+    /* [선택, 변경] null= 선택없다*/
 
-    const firstThen = (response: Response): Promise<Coin[]> => {
+    const firstThen = (response: Response) => {
 
         return response.json();
     };
 
-    const secondThen = (json: Coin[]) => {
-        setCoins(json);
+    const secondThen = (json: { data: Coin[]}) => {
+        setCoins(json.data);
     }
 
     useEffect(() => {
 
-        fetch("https://api.upbit.com/v1/market/all")
+        fetch("https://api.coinlore.net/api/tickers/?start=0&limit=50")
             .then(firstThen)
             .then(secondThen)
 
@@ -35,6 +43,8 @@ function CoinPage() {
                 }
             });
     }, []);
+
+
 
     return (
         <div className={styles.container}>
@@ -49,10 +59,11 @@ function CoinPage() {
             <h2>업비트 코인 목록 ({coins.length}개)</h2>
 
 
-                {coins.map((coin, index) => {
+                {coins.map((coin) => {
                     return (
-                        <div key={index}>
-                            <p>{coin.korean_name} ({coin.market})</p>
+                        <div key={coin.id}
+                        onClick={() => setSelectedCoin(coin)}>
+                            <p>{coin.name} ({coin.symbol})</p>
                         </div>
                     );
                 })}
@@ -60,15 +71,30 @@ function CoinPage() {
 
             <div className={styles.coinDetail}>
                 <div className={styles.infoBox}>
-                    <h2>코인 상세정보</h2>
-                    <p>현재 가격</p>
-                    <p>시가총액</p>
-                    <p>24시간 거래량</p>
-                    <p>시가총액 순위</p>
+                    <h2>
+                        {selectedCoin ? selectedCoin.name : "코인 선택하셈"}
+                    </h2>
+                    <p>
+                        현재 가격:  {selectedCoin
+                        ? Number(selectedCoin.price_usd).toLocaleString() + "달러" : "조회 중..."}
+                    </p>  {/* T0do에서 했던 삼항 toLocaleString() 천단위 쉼표*/}
+                    <p>
+                        시가총액:  {selectedCoin
+                        ? Number(selectedCoin.price_usd).toLocaleString() + "달러" : "조회 중..."}
+                    </p>
+                    <p>
+                        24시간 거래량:  {selectedCoin
+                        ? Number(selectedCoin.price_usd).toLocaleString() + "달러" : "조회 중..."}
+                    </p>
+                    <p>
+                        시가총액 순위:  {selectedCoin
+                        ? Number(selectedCoin.price_usd).toLocaleString() + "달러" : "조회 중..."}
+                    </p>                          {/*코인 데이터에서 가져옴*/}
                 </div>
 
-                <div className={styles.imageBox}>
-                </div>
+               <div className={styles.infoBox}>
+                   <CCharacter />
+               </div>
         </div>
             </div>
         </div>

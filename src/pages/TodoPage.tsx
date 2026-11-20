@@ -108,8 +108,8 @@ function TodoPage() {
             <button onClick={addTodo}
             style={{
                 padding: "8px 12px",
-                backgroundColor: "#4f46e5",
-                color: "#ffffff",
+                backgroundColor: "#c2bebe",
+                color: "#000000",
                 border: "none",
                 borderRadius: "10px",
                 fontSize: "14px",
@@ -119,7 +119,7 @@ function TodoPage() {
                 cursor: "pointer",
             }}
             >
-                추가
+                🐠
             </button>
             </div>
             <ul
