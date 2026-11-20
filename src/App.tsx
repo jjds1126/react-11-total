@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import { Routes, Route } from 'react-router'
 import HomePage from "./pages/HomePage.tsx"
 import TodoPage from "./pages/TodoPage"
+import CoinPage from "./pages/CoinPage.tsx";
 import { ThemeContext } from "./ThemeContext"
 
 const GlobalStyle = createGlobalStyle`
@@ -37,10 +38,11 @@ function App() {
             }}
         >
             <Header />
-            <Routes>
+            <Routes>   {/*Routes 표지판 경로에 따라 페이지 보여줌*/}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/todo" element={<TodoPage />} />
-            </Routes>
+                <Route path="/coin" element={<CoinPage /> } />
+            </Routes>  {/* element{</>} 보여줄 화면 뭔지 정하기 */}
         </div>
             </>
     )

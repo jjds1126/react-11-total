@@ -38,10 +38,94 @@ function Navigation() {
                         Todo
                     </Link>
                 </li>
-                <li style={{ color: 'inherit' }}>Coin</li>
-                <li style={{ color: 'inherit' }}>Movie</li>
-                <li style={{ color: 'inherit' }}>Rocket</li>
-                <li style={{ color: 'inherit' }}>Book</li>
+
+
+                {/*
+                    to="/" to = 어디로 갈꺼? /=>홈 주소  to="/a" => 클릭시 a로 이동할꺼
+                */}
+
+                <li>
+                    <Link to="/coin" style={{ color: 'inherit',
+                        textDecoration: "none"
+                    }}>
+                        coin
+                    </Link>
+                </li>
+                {/*---------------------------코인---------------------------------*/}
+                <li>
+                    <Link
+                        to="/coin"
+                        style={{
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}>
+                    </Link>
+                </li>
+
+
+
+
+
+                <li>
+                    <Link to="/movie" style={{ color: 'inherit',
+                        textDecoration: "none"
+                    }}>
+                        Movie
+                    </Link>
+                </li>
+                {/*---------------------------Movie---------------------------------*/}
+                <li>
+                    <Link
+                        to="/movie"
+                        style={{
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}>
+                    </Link>
+                </li>
+
+
+
+
+                <li>
+                    <Link to="/rocket" style={{ color: 'inherit',
+                        textDecoration: "none"
+                    }}>
+                        Rocket
+                    </Link>
+                </li>
+                {/*---------------------------Rocket---------------------------------*/}
+                <li>
+                    <Link
+                        to="/rocket"
+                        style={{
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}>
+                    </Link>
+                </li>
+
+
+
+
+
+                <li>
+                    <Link to="/book" style={{ color: 'inherit',
+                        textDecoration: "none"
+                    }}>
+                        Book
+                    </Link>
+                </li>
+                {/*---------------------------Book---------------------------------*/}
+                <li>
+                    <Link
+                        to="/book"
+                        style={{
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}>
+                    </Link>
+                </li>
             </ul>
         </nav>
     )
