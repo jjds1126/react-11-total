@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router'
 import HomePage from "./pages/HomePage.tsx"
 import TodoPage from "./pages/TodoPage"
 import CoinPage from "./pages/CoinPage.tsx";
+import Movie from "./pages/Movie.tsx";
 import { ThemeContext } from "./ThemeContext"
 
 const GlobalStyle = createGlobalStyle`
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/todo" element={<TodoPage />} />
                 <Route path="/coin" element={<CoinPage /> } />
+                <Route path="/movie" element={<Movie />} />
             </Routes>  {/* element{</>} 보여줄 화면 뭔지 정하기 */}
         </div>
             </>

@@ -48,7 +48,7 @@ function Home() {
             >
                 <h2
                     style={{
-                        color: '#287bd1',
+                        color: '#000000',
                         fontSize: '30px',
                         marginBottom: '12px',
                     }}
