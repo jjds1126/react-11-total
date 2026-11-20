@@ -1,3 +1,4 @@
+
 import Character from "../components/Character/Character";
 import {useState} from "react";
 
@@ -63,6 +64,7 @@ function TodoPage() {
                 width: "100%",
                 textAlign: "center",
                 fontWeight: "bold",
+                fontFamily: "JejuStoneWall",
                 margin: "0",
                 boxSizing: "border-box",
                 padding: "20px",
@@ -81,6 +83,7 @@ function TodoPage() {
                     width: "100%",
                     marginTop: "20px",
                     marginBottom: "20px",
+                    boxSizing: "border-box",  /* 부모div에"border-box" 다른게 추가해도 변경없음*/
                 }}
                 >
             <input
@@ -91,6 +94,7 @@ function TodoPage() {
                 placeholder="오늘 할 일을 입력하세요"
                 style={{
                     flex: 1,
+                    minWidth: 0, /*공간부족 할떄 줄어듬*/
                     padding: "8px 12px",
                     border: "1px solid #e5e7eb",
                     borderRadius: "10px",
@@ -103,12 +107,14 @@ function TodoPage() {
 
             <button onClick={addTodo}
             style={{
-                padding: "8px 16px",
+                padding: "8px 12px",
                 backgroundColor: "#4f46e5",
                 color: "#ffffff",
                 border: "none",
                 borderRadius: "10px",
-                fontSize: "16px",
+                fontSize: "14px",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
                 fontWeight: "bold",
                 cursor: "pointer",
             }}
