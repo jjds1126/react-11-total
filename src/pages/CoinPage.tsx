@@ -38,18 +38,41 @@ function CoinPage() {
 
     return (
         <div className={styles.container}>
-            <h1>업비트 코인 목록 ({coins.length}개)</h1>
-            <hr />
-            <select>
+            <header className={styles.header}>
+                <h1>COIN</h1>
+            </header>
+
+
+
+            <div className={styles.content}>
+        <div className={styles.coinList}>
+            <h2>업비트 코인 목록 ({coins.length}개)</h2>
+
+
                 {coins.map((coin, index) => {
                     return (
-                        <option key={index}>
-                            {coin.korean_name} ({coin.market})
-                        </option>
+                        <div key={index}>
+                            <p>{coin.korean_name} ({coin.market})</p>
+                        </div>
                     );
                 })}
-            </select>
         </div>
+
+            <div className={styles.coinDetail}>
+                <div className={styles.infoBox}>
+                    <h2>코인 상세정보</h2>
+                    <p>현재 가격</p>
+                    <p>시가총액</p>
+                    <p>24시간 거래량</p>
+                    <p>시가총액 순위</p>
+                </div>
+
+                <div className={styles.imageBox}>
+                </div>
+        </div>
+            </div>
+        </div>
+
     );
 }
 
