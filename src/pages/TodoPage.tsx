@@ -1,3 +1,4 @@
+import Character from "../components/Character/Character";
 import {useState} from "react";
 
 function TodoPage() {
@@ -177,7 +178,9 @@ function TodoPage() {
                     boxShadow: "0 4px 10px #080808",
                     boxSizing: "border-box",
                 }}
-            ></div>
+            >
+                <Character />    {/* <= div 사이 이거넣어애보임 */}
+            </div>
         </div>
     )
 }

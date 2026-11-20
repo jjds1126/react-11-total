@@ -7,6 +7,7 @@ function Home() {
         {
             title: '투두리스트',
             description: '일 체계적인 일정 관리와 할 일 목록 기록',
+            path: '/todo',
         },
         {
             title: '코인트래커',
